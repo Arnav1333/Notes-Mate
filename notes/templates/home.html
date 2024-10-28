@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to Notes Mate</h1>
+<p>Your intelligent note organizer. Here, you can upload your notes in PDF format and review them anytime.</p>
+<a href="{% url 'upload_note' %}" class="button-link">Upload a New Note</a>
+<a href="{% url 'note_list' %}" class="button-link">View Notes</a>
+{% endblock %}
