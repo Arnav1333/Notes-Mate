@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'notes_mate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'notesDB',  # Your database name
-        'USER': 'notes',  # Your database user
-        'PASSWORD': 'notes',  # Your database password
-        'HOST': 'localhost',  # Replace with the actual host
-        'PORT': '5432',  # Default PostgreSQL port
+        'NAME': 'postgres',  # Replace with your database name
+        'USER': 'postgres',        # Replace with your database username
+        'PASSWORD': 'tiOhlMqjH79FelO4',    # Replace with your database password
+        'HOST': 'unholy-up-viper.data-1.use1.tembo.io',            # Replace with your database host
+        'PORT': '5432', 
     }
 }
 
@@ -121,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_URL = '/static/'  # URL prefix for static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
