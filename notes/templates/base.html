@@ -13,9 +13,19 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'note_list' %}">View Notes</a></li>
             <li><a href="{% url 'upload_note' %}">Upload Note</a></li>
+            
+            <!-- User authentication links -->
+            {% if user.is_authenticated %}
+                <li>  <a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+            {% endif %}
         </ul>
     </nav>
+    
     <div class="content">
+        Welcome, {{ user.username }}
         {% block content %}{% endblock %}
     </div>
 </body>

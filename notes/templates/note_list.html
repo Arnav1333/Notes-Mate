@@ -1,22 +1,26 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}Uploaded Notes{% endblock %}
+{% block title %}Your Notes{% endblock %}
 
 {% block content %}
-<h1>Uploaded Notes</h1>
+<h2>Your Notes</h2>
+
 <ul>
     {% for note in notes %}
         <li>
             <strong>{{ note.title }}</strong> - 
             <a href="{{ note.pdf_file.url }}" download>Download PDF</a>
-            <span>(Uploaded on {{ note.uploaded_at }})</span>
-            <p><strong>Summary:</strong> {{ note.summary }}</p>
+            <span>(Uploaded on {{ note.uploaded_at|date:"F j, Y, g:i a" }})</span>
+            <p><strong>About:</strong> {{ note.summary }}</p>
             <form method="POST" action="{% url 'delete_note' note.id %}" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit">Delete</button>
             </form>
         </li>
+    {% empty %}
+        <p>You haven't uploaded any notes yet. <a href="{% url 'upload_note' %}">Upload a New Note</a></p>
     {% endfor %}
 </ul>
+
 <a href="{% url 'upload_note' %}">Upload a New Note</a>
 {% endblock %}
