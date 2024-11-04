@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'notes_mate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',  # Replace with your database name
-        'USER': 'postgres',        # Replace with your database username
-        'PASSWORD': 'tiOhlMqjH79FelO4',    # Replace with your database password
-        'HOST': 'unholy-up-viper.data-1.use1.tembo.io',            # Replace with your database host
+        'NAME': 'postgres', 
+        'USER': 'postgres',      
+        'PASSWORD': 'tiOhlMqjH79FelO4',   
+        'HOST': 'unholy-up-viper.data-1.use1.tembo.io',            
         'PORT': '5432', 
     }
 }
